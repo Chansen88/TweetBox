@@ -21,7 +21,7 @@
         $http({
           method: 'POST',
           dataType: 'JSONP',
-          url: 'http://127.0.0.1:3000/api/users/signup',
+          url: '/api/users/signup',
           data: obj
         }).then(function successCallback(response) {
           if (response.data) {
@@ -39,7 +39,7 @@
         $http({
           method: 'POST',
           dataType: 'JSONP',
-          url: 'http://127.0.0.1:3000/api/users/login',
+          url: '/api/users/login',
           data: obj
         }).then(function successCallback(response) {
           if (response.data) {
@@ -61,7 +61,7 @@
 
       UserData.twitterLogin = function() {
         var authWindow = window.open(
-          'http://127.0.0.1:3000/twitterauth',
+          '/twitterauth',
           'Spotify',
           'menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width='
             + w + ',height=' + h + ',top=' + top + ',left=' + left
@@ -72,7 +72,7 @@
 
       UserData.spotifyLogin = function() {
         var authWindow = window.open(
-          'http://127.0.0.1:3000/spotifyauth',
+          '/spotifyauth',
           'Spotify',
           'menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width='
             + w + ',height=' + h + ',top=' + top + ',left=' + left

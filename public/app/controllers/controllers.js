@@ -3,9 +3,8 @@
     .module('tweetBoxApp')
     .controller('MainController',
       ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval',
-        '$cookies',
         function(
-          $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies
+          $scope, Spotify, Twitter, Playlist, UserData, $interval
         ) {
           var vm = this;
           vm.trackID = Playlist.parsedTrack;

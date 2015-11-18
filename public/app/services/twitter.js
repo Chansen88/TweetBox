@@ -12,7 +12,7 @@
           method: 'POST',
           dataType: 'JSONP',
           data: {count: '1'},
-          url: 'http://127.0.0.1:3000/api/twitterfetch',
+          url: '/api/twitterfetch',
           xhrFields: {
             withCredentials: true
           }
@@ -37,7 +37,7 @@
           method: 'POST',
           dataType: 'JSONP',
           data: data,
-          url: 'http://127.0.0.1:3000/api/twitterfetch',
+          url: '/api/twitterfetch',
           xhrFields: {
             withCredentials: true
           }
@@ -58,7 +58,7 @@
         $http({
           method: 'POST',
           dataType: 'JSONP',
-          url: 'http://127.0.0.1:3000/api/authcheck',
+          url: '/api/authcheck',
           xhrFields: {
             withCredentials: true
           }

@@ -24,7 +24,7 @@
       .config(function(SpotifyProvider) {
         SpotifyProvider.setClientId('634a5dc250544991b91a8be0874b61be');
         SpotifyProvider.setRedirectUri(
-          'http://127.0.0.1:3000/spotify/callback/'
+          '/spotify/callback/'
         );
         SpotifyProvider.setScope('playlist-read-private');
       });

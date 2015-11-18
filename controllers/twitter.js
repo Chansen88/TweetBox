@@ -3,7 +3,7 @@ var config = require('../env.json')[process.env.NODE_ENV || 'development'];
 var twitter = new twitterAPI({
   consumerKey: config.TWITTER_CONSUMER_KEY,
   consumerSecret: config.TWITTER_CONSUMER_SECRET,
-  callback: 'http://127.0.0.1:3000'
+  callback: 'https://obscure-brushlands-6394.herokuapp.com/'
 });
 
 apiRouter.route('/twittertoken')
@@ -14,12 +14,10 @@ apiRouter.route('/twittertoken')
     function(error, accessToken, accessTokenSecret, results) {
       if (error) {
         console.log(error);
-        console.log('&&&&&&&&&&&&&&&&OSHIT&&&&&&&&&&&&&&&');
         res.redirect('/#/account');
       } else {
         req.session.accessToken = accessToken;
         req.session.accessTokenSecret = accessTokenSecret;
-        console.log('##################SUCESS###################');
         res.redirect('/#/close');
       }
     });
@@ -64,8 +62,6 @@ app.get('/twitterauth', function(req, res) {
     } else {
       req.session.requestToken = requestToken;
       req.session.requestTokenSecret = requestTokenSecret;
-      console.log(req.session.requestToken + ' ' +
-        req.session.requestTokenSecret);
       userredirect(requestToken);
     }
     function userredirect(requestToken) {
