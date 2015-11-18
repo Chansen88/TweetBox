@@ -18,7 +18,7 @@ body {
 }
 .scroll{
   position: relative;
-  top: 100vh;
+  top: 150vh;
 }
 .search_results:hover{
   color: #00e676;
