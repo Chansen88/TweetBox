@@ -19,7 +19,6 @@
           };
           vm.searchAll = function(searchText) {
             Spotify.searchAll(searchText).then(function(data) {
-              console.log(data);
             });
           };
           vm.twitterfetch = function() {
@@ -31,7 +30,6 @@
           };
 
           vm.openauth = function() {
-            console.log('opening auth');
             $('#modal1').openModal();
           };
 
@@ -46,7 +44,6 @@
           };
           vm.searchSpotify = function(searchString) {
             Spotify.searchAll(searchString).then(function(data) {
-              console.log(data.tracks.items);
               vm.searchResults = data.tracks.items;
             });
           };

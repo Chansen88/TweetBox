@@ -65,7 +65,6 @@
 
 
       Playlist.addSearch = function(songdata) {
-        console.log(songdata);
         if (songdata[0]) {
           var temp = _.find(
             Playlist.trackData, _.matchesProperty(
@@ -94,7 +93,6 @@
       Playlist.buildUrl = function() {
         var trackId = [];
         Playlist.trackData.forEach(function(track) {
-          console.log(track);
           trackId.push(track.id);
         });
         Playlist.parsedTrack[0] = $sce.trustAsResourceUrl(
