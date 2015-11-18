@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('cookie-session');
 var db = require('./models');
-var config = require('./env.json')[process.env.NODE_ENV || 'development'];
+var config = require('./env.json')[process.env.NODE_ENV || 'production'];
 
 apiRouter = express.Router();
 app = express();
@@ -36,6 +36,6 @@ app.get('*', function(req, res) {
   res.render('index.html.ejs');
 });
 
-app.listen(3000, function() {
-  console.log('Server up @ ' +  3000);
+app.listen(process.env.PORT || 3000, function() {
+  console.log('server is listening on port ' + process.env.PORT || 3000);
 });
