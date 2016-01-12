@@ -89,7 +89,7 @@
               </thead>
 
               <tbody>
-                <tr class='fade track-container' ng-repeat="track in vm.tracks">
+                <tr class='fade' ng-repeat="track in vm.tracks">
                   <td>
                     <div class="row valign-wrapper">
                       <div class="col s1 valign">
@@ -103,7 +103,7 @@
                           <i ng-show="!showPause" class='material-icons small'>play_circle_outline</i>
                           <i ng-show="showPause" class='material-icons small'>pause_circle_outline</i>
                         </a>
-                        <p>{{track.name}}</p>
+                        {{track.name}}
                       </div>
                       <div class="col s2 valign">
                         <p>{{track.artists}}</p>
