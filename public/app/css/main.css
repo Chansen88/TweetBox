@@ -2,6 +2,7 @@
 body {
   background: RGBA(25, 25, 25, 1);
 }
+
 #navbar-fixed {
   top: 0;
   z-index: 100;
@@ -64,4 +65,8 @@ body {
 }
 .chriscontainer {
   margin: 100px;
+}
+
+#main-content {
+  margin-top: 150px;
 }
