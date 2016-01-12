@@ -99,9 +99,9 @@
                           <p>&nbsp</p>
                       </div>
                       <div class="col s4 valign">
-                        <a class="btn-floating btn-small waves-effect waves-light #212121 grey darken-4" ng-click='vm.playTrack(track)'>
-                          <i ng-hide="vm.showPause" class='material-icons small'>play_circle_outline</i>
-                          <i ng-show="vm.showPause" class='material-icons small'>pause_circle_outline</i>
+                        <a ng-model="showPause" class="btn-floating btn-small waves-effect waves-light #212121 grey darken-4" ng-click='vm.playTrack(track); showPause=!showPause'>
+                          <i ng-show="!showPause" class='material-icons small'>play_circle_outline</i>
+                          <i ng-show="showPause" class='material-icons small'>pause_circle_outline</i>
                         </a>
                         <p>{{track.name}}</p>
                       </div>
