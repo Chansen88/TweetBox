@@ -62,12 +62,12 @@
           };
           vm.playTrack = function(track) {
           var name = track.name;
-            if (!previewPlay.name){
-              previewPlay.name = new Audio(track.preview_url);
-              previewPlay.name.play();
+            if (!vm.previewPlay.name){
+              vm.previewPlay.name = new Audio(track.preview_url);
+              vm.previewPlay.name.play();
             } else {
-              previewPlay.name.pause();
-              previewPlay.name = null;
+              vm.previewPlay.name.pause();
+              vm.previewPlay.name = null;
             }
           };
         }]);
