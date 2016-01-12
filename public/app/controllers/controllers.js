@@ -11,6 +11,7 @@
           vm.tracks = Playlist.trackData;
           vm.auth = Twitter.authval;
           Twitter.authCheck();
+          vm.previewPlay = {};
 
           vm.newPlaylist = function() {
             Twitter.new();
@@ -60,13 +61,12 @@
             vm.searchResults = {};
           };
           vm.playTrack = function(track) {
-            console.log(track);
-            console.log(track.preview_url);
-            if (!audio){
-              var audio = new Audio(track.preview_url);
-              audio.play();
+            if (!previewPlay.preview_url){
+              previewPlay.preview_url = new Audio(track.preview_url);
+              previewPlay.preview_url.play();
             } else {
-              audio.pause();
+              previewPlay.preview_url.pause();
+              previewPlay.preview_url = null;
             }
           };
         }]);
