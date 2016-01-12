@@ -60,10 +60,10 @@
             vm.searchResults = {};
           };
           vm.playTrack = function(track) {
+            console.log(audio);
             var audio = new Audio(track.preview_url);
             audio.play();
-            console.log(audio);
-            vm.showPause();
+            vm.showPause = true;
           };
         }]);
 })();
