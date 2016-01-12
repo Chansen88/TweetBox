@@ -146,7 +146,15 @@
                                     <i class='material-icons'>playlist_add</i>
                                   </a>
                                 </td>
-                                <td>{{subtrack.name}}</td>
+                                <td>
+                                  <a ng-model="showPause" class="btn-floating btn-small waves-effect waves-light #212121 grey darken-4" ng-click='vm.playTrack(subtrack); showPause=!showPause'>
+                                    <i ng-show="!showPause" class='material-icons small'>play_circle_outline</i>
+                                    <i ng-show="showPause" class='material-icons small'>pause_circle_outline</i>
+                                  </a>
+                                  <p>
+                                    {{subtrack.name}}
+                                  </p>
+                                </td>
                                 <td>{{subtrack.artists}}</td>
                                 <td>{{subtrack.album}}</td>
                               </tr>
