@@ -61,13 +61,12 @@
             vm.searchResults = {};
           };
           vm.playTrack = function(track) {
-          var preview_url = track.preview_url;
-            if (!vm.previewPlay.preview_url){
-              vm.previewPlay.preview_url = new Audio(track.preview_url);
-              vm.previewPlay.preview_url.play();
+            if (!vm.previewPlay[track.name]){
+              vm.previewPlay[track.name] = new Audio(track.preview_url);
+              vm.previewPlay[track.name].play();
             } else {
-              vm.previewPlay.preview_url.pause();
-              vm.previewPlay.preview_url = null;
+              vm.previewPlay[track.name].pause();
+              vm.previewPlay[track.name] = null;
             }
             console.log(vm.previewPlay);
           };
