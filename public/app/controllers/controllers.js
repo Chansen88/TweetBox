@@ -59,8 +59,9 @@
             vm.searchString = '';
             vm.searchResults = {};
           };
-          vm.playTrack = function() {
-            console.log(track);
+          vm.playTrack = function(track) {
+            var audio = new Audio(track.preview_url);
+            audio.play();
           };
         }]);
 })();
