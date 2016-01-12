@@ -69,6 +69,7 @@
               vm.previewPlay.name.pause();
               vm.previewPlay.name = null;
             }
+            console.log(previewPlay);
           };
         }]);
 })();
