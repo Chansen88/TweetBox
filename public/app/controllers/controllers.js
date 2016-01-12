@@ -62,6 +62,8 @@
           vm.playTrack = function(track) {
             var audio = new Audio(track.preview_url);
             audio.play();
+            console.log(audio);
+            vm.showPause();
           };
         }]);
 })();
