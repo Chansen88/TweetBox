@@ -61,12 +61,13 @@
             vm.searchResults = {};
           };
           vm.playTrack = function(track) {
-            if (!previewPlay.preview_url){
-              previewPlay.preview_url = new Audio(track.preview_url);
-              previewPlay.preview_url.play();
+          var name = track.name;
+            if (!previewPlay.name){
+              previewPlay.name = new Audio(track.preview_url);
+              previewPlay.name.play();
             } else {
-              previewPlay.preview_url.pause();
-              previewPlay.preview_url = null;
+              previewPlay.name.pause();
+              previewPlay.name = null;
             }
           };
         }]);
