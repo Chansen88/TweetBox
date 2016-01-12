@@ -17,6 +17,7 @@
         this.artists = tempArtists.join(', ');
         this.album = data[0].album.name;
         this.albumArt = data[0].album.images[1].url;
+        this.preview_url = data[0].preview_url;
         if (main) {
           this.score = 0;
           this.time = Date.now();
