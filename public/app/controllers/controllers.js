@@ -59,5 +59,8 @@
             vm.searchString = '';
             vm.searchResults = {};
           };
+          vm.playTrack = function() {
+            console.log(track);
+          };
         }]);
 })();
