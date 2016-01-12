@@ -70,3 +70,8 @@ body {
 #main-content {
   margin-top: 150px;
 }
+
+.track-container {
+  display: flex;
+  align-content: center;
+}
