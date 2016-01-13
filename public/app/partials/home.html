@@ -18,7 +18,7 @@
 
 <div class="container" id="main-content">
   <div ng-if='vm.tracks.length < 2' class="top_margin valign-wrapper" id="create-playlist-button">
-    <a ng-click="vm.twitterfetch()" class="waves-effect waves-light valign extralarge #424242 grey darken-3 center-align"><i class="material-icons">queue_music</i>Create Playlist</a>
+    <div ng-click="vm.twitterfetch()" class="waves-effect waves-light valign extralarge #424242 grey darken-3 center-align"><i class="material-icons">queue_music</i>Create Playlist</div>
   </div>
   <div ng-if='vm.tracks.length > 1' class="top_margin">
     <div class="row">
