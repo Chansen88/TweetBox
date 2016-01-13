@@ -9,6 +9,9 @@ body {
   width: 100%;
   position: fixed;
 }
+.search-width {
+  width: 400px;
+}
 
 .fixed{
   top: 10%;
