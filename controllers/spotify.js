@@ -14,6 +14,11 @@ app.get('/spotifyauth', function(req, res) {
 });
 
 app.get('/spotifycallback', function(req, res) {
+  console.log('*****************************************************************************************************************************');
+  console.log(req.body);
+  console.log(req.query);
+  console.log(req);
+  console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
   req.session.spotifyToken = req.query.code;
   res.redirect('/#/close');
 });
