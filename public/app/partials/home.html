@@ -41,15 +41,20 @@
                 <div class="card #212121 grey darken-4 content_scroll" id="searchReultContainer">
                   <ul class="collection">
                     <li class="collection-item avatar fade #424242 grey darken-3" ng-repeat="result in vm.searchResults">
-                      <img alt="{{result.name}}" ng-src="{{result.album.images[2].url}}">
-                      <span class="title">{{result.name}}</span>
-                      <p ng-repeat='artist in result.artists'>
-                        {{artist.name}}
-                      </p>
-                      <a href="#!">
+                      <div class="col s4">
                         <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
                         <i class='material-icons cursor_pointer' ng-click='vm.playTrack(result)'>{{result.playState}}</i>
-                      </a>
+                      </div>
+                      <div class="col s4">
+                        <img alt="{{result.name}}" ng-src="{{result.album.images[2].url}}">
+                      </div>
+                      <div class="col s4">
+                        <span class="title">{{result.name}}</span>
+                        <br>
+                        <p ng-repeat='artist in result.artists'>
+                          {{artist.name}}
+                        </p>
+                      </div>
                     </li>
                   </ul>
                 </div>
