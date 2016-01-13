@@ -1,12 +1,6 @@
 /* add custom styles */
 body {
-  height: 100%;
-  width: 100%;
   background: RGBA(25, 25, 25, 1);
-}
-#create-playlist-button {
-  height: 100%;
-  width: 100%;
 }
 
 #navbar-fixed {
@@ -38,8 +32,9 @@ body {
 .extralarge{
   border: none;
   padding: 40px;
+}
 
-.content_scroll{
+.content_scroll {
   overflow-y: scroll;
   height:300px;
 }
@@ -65,10 +60,6 @@ body {
 }
 .chriscontainer {
   margin: 100px;
-}
-
-#main-content {
-  margin-top: 150px;
 }
 
 .track-container {

@@ -20,7 +20,7 @@
   <div ng-if='vm.tracks.length < 2' class="top_margin valign-wrapper" id="create-playlist-button">
     <a ng-click="vm.twitterfetch()" class="waves-effect waves-light valign extralarge #424242 grey darken-3 center-align"><i class="material-icons">queue_music</i>Create Playlist</a>
   </div>
-  <div ng-if='vm.tracks.length > 1' class="main_scroll">
+  <div ng-if='vm.tracks.length > 1' class="top_margin">
     <div class="row">
       <div class="col s12 ">
         <div class="card #212121 grey darken-4">
@@ -37,8 +37,8 @@
               </div>
             </div>
             <div class="row valign-wrapper" ng-if='vm.searchString'>
-              <div class="col s6 push-s3 valign">
-                <ul class="collection content_scroll" id="searchReultContainer">
+              <div class="col s6 push-s3 valign content_scroll">
+                <ul class="collection" id="searchReultContainer">
                   <li class="collection-item avatar #424242 grey darken-3 valign-wrapper" ng-repeat="result in vm.searchResults">
                     <div class="col s2 valign">
                       <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
