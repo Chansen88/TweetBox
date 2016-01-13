@@ -1,5 +1,3 @@
-'use strict';
-
 (function() {
   angular
     .module('tweetBoxApp')
@@ -56,9 +54,9 @@
         };
         vm.searchSpotify = function(searchString) {
           Spotify.searchAll(searchString).then(function(data) {
-            for (var track of data.tracks) {
+            data.tracks.forEach(function(track) {
               track.playState = 'play_circle_outline';
-            };
+            });
             vm.searchResults = data.tracks.items;
             console.log(data.tracks.items);
           });
