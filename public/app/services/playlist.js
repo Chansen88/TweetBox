@@ -98,18 +98,21 @@
         temp.name = trackOne.name;
         temp.artists = trackOne.artists;
         temp.album = trackOne.album;
+        temp.previewUrl = trackOne.previewUrl;
         temp.playState = trackOne.playState;
 
         trackOne.id = trackTwo.id;
         trackOne.name = trackTwo.name;
         trackOne.artists = trackTwo.artists;
         trackOne.album = trackTwo.album;
+        trackOne.previewUrl = trackTwo.previewUrl;
         trackOne.playState = trackTwo.playState;
 
         trackTwo.id = temp.id;
         trackTwo.name = temp.name;
         trackTwo.artists = temp.artists;
         trackTwo.album = temp.album;
+        trackTwo.previewUrl = temp.previewUrl;
         trackTwo.playState = temp.playState;
 
         Playlist.buildUrl();
