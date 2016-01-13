@@ -3,7 +3,8 @@
     .module('tweetBoxApp')
     .controller('CallBackController', ['$scope', '$window',
       function($scope, $window) {
-        $scope.close = function() {
+        var vm = this;
+        vm.close = function() {
           $window.close();
         };
       }

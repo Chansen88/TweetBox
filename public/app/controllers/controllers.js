@@ -2,10 +2,10 @@
 
 (function() {
   angular
-    .module('tweetBoxApp')
-    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval',
+    .module('tweetBoxApp', 'ngCookies')
+    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$cookies',
       function(
-        $scope, Spotify, Twitter, Playlist, UserData, $interval
+        $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies
       ) {
         var vm = this;
         vm.tracks = Playlist.trackData;
@@ -46,9 +46,8 @@
         };
 
         vm.spotifyAuth = function() {
-          UserData.spotifyLogin().then(function(data) {
-            console.log(data);
-          });
+          UserData.spotifyLogin();
+          localStorage.setItem('spotify-token', token);
         };
         vm.twitterAuth = function() {
           UserData.twitterLogin();
@@ -95,6 +94,9 @@
           }
         };
         vm.createPlaylist = function() {
+          var token = $cookies.get('spotifyToken');
+          console.log(token);
+          localStorage.setItem('spotify-token', token);
           var trackIDs = [];
           for (var track of vm.tracks) {
             trackIDs.push(track.id);
