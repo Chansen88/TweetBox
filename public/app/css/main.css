@@ -22,10 +22,6 @@ body {
 .search_results:hover{
   color: #00e676;
 }
-#search-result-container{
-  max-height: 25%;
-  overflow-y: scroll;
-}
 .cursor_pointer:hover{
   cursor:pointer;
 }
