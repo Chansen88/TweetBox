@@ -94,7 +94,7 @@
         };
         vm.createPlaylist = function() {
           var trackIDs = [];
-          for (track of vm.tracks) {
+          for (var track of vm.tracks) {
             trackIDs.push(track.id);
           }
           Spotify
