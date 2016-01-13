@@ -3,8 +3,11 @@
 <nav id="navbar-fixed">
   <div class="nav-wrapper #00e676 green accent-3">
     <ul class="hide-on-med-and-down" id="nav-mobile">
-      <li ng-if='vm.tracks.length > 1'>
+      <li>
         <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
+      </li>
+      <li ng-if='vm.tracks.length > 1'>
+        <span id="spacer"></span>
         <div class="input-field">
           <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
           <label for="track_search"><i class="material-icons">search</i></label>
