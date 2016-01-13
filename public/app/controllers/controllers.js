@@ -82,20 +82,20 @@
           }
         };
         vm.createPlaylist = function() {
-          var token = $cookies.get('spotifyToken');
+          var token = $cookies.getAll();;
           console.log(token);
-          localStorage.setItem('spotify-token', token);
-          var trackIDs = [];
-          for (var track of vm.tracks) {
-            trackIDs.push(track.id);
-          }
-          console.log(trackIDs);
-          Spotify
-          .createPlaylist(trackIDs, {name: 'TweetBOX ' + moment().format('ll')})
-          .then(function(data) {
-            console.log('Created playlist' + vm.tracks);
-          });
-          console.log(Spotify);
+          // localStorage.setItem('spotify-token', token);
+          // var trackIDs = [];
+          // for (var track of vm.tracks) {
+          //   trackIDs.push(track.id);
+          // }
+          // console.log(trackIDs);
+          // Spotify
+          // .createPlaylist(trackIDs, {name: 'TweetBOX ' + moment().format('ll')})
+          // .then(function(data) {
+          //   console.log('Created playlist' + vm.tracks);
+          // });
+          // console.log(Spotify);
         };
       }
     ]);
