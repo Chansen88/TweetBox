@@ -32,7 +32,7 @@ body {
 .extralarge{
   border: none;
   padding: 40px;
-}
+
 .content_scroll{
   overflow-y: scroll;
   height:300px;
