@@ -156,9 +156,8 @@
                                 </td>
                                 <td>
                                   <p>
-                                    <a ng-model="showPause" class="btn-floating btn-small waves-effect waves-light #212121 grey darken-4" ng-click='vm.playTrack(subtrack); showPause=!showPause'>
-                                      <i ng-show="!showPause" class='material-icons small'>play_circle_outline</i>
-                                      <i ng-show="showPause" class='material-icons small'>pause_circle_outline</i>
+                                    <a class="btn-floating btn-small waves-effect waves-light #212121 grey darken-4" ng-click='vm.playTrack(subtrack)'>
+                                      <i class='material-icons small'>{{track.playState}}</i>
                                     </a>
                                     {{subtrack.name}}
                                   </p>
