@@ -2,7 +2,7 @@
 
 (function() {
   angular
-    .module('tweetBoxApp', 'ngCookies')
+    .module('tweetBoxApp')
     .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$cookies',
       function(
         $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies
@@ -12,18 +12,6 @@
         vm.auth = Twitter.authval;
         Twitter.authCheck();
         vm.previewPlay = {};
-
-        vm.ngPopupOption = {
-          modelName: "myNgPopup",
-          width: 400,
-          height: 300,
-          hasTitleBar:true,
-          template: '<img src="http://www.omgubuntu.co.uk/wp-content/uploads/2014/03/Forever-Shady-S.jpg" style="width:100%;height:100%;">',
-          title: "Awesome Dialog",
-          resizable:true,
-          draggable: true,
-          position: { top : 250, left : 300},
-        };
 
         vm.newPlaylist = function() {
           Twitter.new();
