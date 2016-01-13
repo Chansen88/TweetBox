@@ -35,7 +35,9 @@
         };
 
         vm.spotifyAuth = function() {
-          UserData.spotifyLogin();
+          UserData.spotifyLogin().then(function(data) {
+            console.log(data);
+          });
         };
         vm.twitterAuth = function() {
           UserData.twitterLogin();
