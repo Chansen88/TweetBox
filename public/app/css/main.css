@@ -12,6 +12,9 @@ body {
 .search-width {
   width: 400px;
 }
+.search-padding{
+  margin-left: 150px;
+}
 
 .fixed{
   top: 10%;
