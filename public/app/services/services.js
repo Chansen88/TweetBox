@@ -1,8 +1,8 @@
 (function() {
   angular
   .module('tweetBoxApp')
-  .factory('UserData', ['$http', '$location', '$cookies', '$window',
-    function($http, $location, $cookies, $window) {
+  .factory('UserData', ['$http', '$location', '$cookies', '$window', 'Spotify',
+    function($http, $location, $cookies, $window, Spotify) {
       var w = 400;
       var h = 500;
       var left = (screen.width / 2) - (w / 2);
@@ -90,7 +90,8 @@
             console.log(response);
             var token = response.data;
             console.log(token);
-            SpotifyProvider.setAuthToken(token);
+            Spotify.setAuthToken(token);
+            console.log(Spotify);
             localStorage.setItem('spotify-token', token);
           }
         }, function errCallback(response) {
