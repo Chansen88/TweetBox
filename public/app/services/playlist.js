@@ -100,16 +100,19 @@
         temp.name = trackOne.name;
         temp.artists = trackOne.artists;
         temp.album = trackOne.album;
+        temp.playState = trackOne.playState;
 
         trackOne.id = trackTwo.id;
         trackOne.name = trackTwo.name;
         trackOne.artists = trackTwo.artists;
         trackOne.album = trackTwo.album;
+        trackOne.playState = trackTwo.playState;
 
         trackTwo.id = temp.id;
         trackTwo.name = temp.name;
         trackTwo.artists = temp.artists;
         trackTwo.album = temp.album;
+        trackTwo.playState = temp.playState;
 
         Playlist.buildUrl();
       };
