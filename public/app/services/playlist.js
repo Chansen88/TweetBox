@@ -27,6 +27,7 @@
           this.subtracks.push(new Track([data[3]], false, 'play_circle_outline'));
           this.subtracks.push(new Track([data[4]], false, 'play_circle_outline'));
         }
+        console.log(this.subtracks);
       };
 
       Playlist.new = function() {
