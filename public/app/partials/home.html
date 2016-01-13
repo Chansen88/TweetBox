@@ -37,8 +37,8 @@
               </div>
             </div>
             <div class="row valign-wrapper" ng-if='vm.searchString'>
-              <div class="col s6 push-s3 valign content_scroll">
-                <ul class="collection" id="searchReultContainer">
+              <div class="col s6 push-s3 valign">
+                <ul class="collection" id="search-result-container">
                   <li class="collection-item avatar #424242 grey darken-3 valign-wrapper" ng-repeat="result in vm.searchResults">
                     <div class="col s2 valign">
                       <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
