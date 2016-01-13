@@ -85,7 +85,7 @@
           method: 'GET',
           url: '/spotifytoken/'
         }).then(function successCallback(response) {
-          var token = response;
+          var token = response.data;
           console.log(token);
           localStorage.setItem('spotify-token', token);
           // $location.path('/close');
