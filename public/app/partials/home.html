@@ -4,9 +4,9 @@
   <div class="nav-wrapper #00e676 green accent-3">
     <ul class="hide-on-med-and-down center-align" id="nav-mobile">
       <li>
-        <a href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
+        <a href="/#/"><img src="/images/logosm.png" alt="TwitList Logo" class="search-height"/></a>
       </li>
-      <li ng-if='vm.tracks.length > 1' class='search-width search-padding'>
+      <li ng-if='vm.tracks.length > 1' class='search-width search-padding search-height'>
         <div class="input-field #00c853 green accent-4">
           <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
           <label for="track_search"><i class="material-icons">search</i></label>
@@ -16,10 +16,10 @@
     </ul>
     <ul class="right hide-on-med-and-down" id="nav-mobile">
       <li>
-        <a class="cursor_pointer" ng-click="vm.newPlaylist()">New Playlist</a>
+        <a class="cursor_pointer search-height" ng-click="vm.newPlaylist()">New Playlist</a>
       </li>
       <li>
-        <a class="cursor_pointer" ng-click="vm.twitterfetch()">Fetch Tweets</a>
+        <a class="cursor_pointer search-height" ng-click="vm.twitterfetch()">Fetch Tweets</a>
       </li>
     </ul>
   </div>
