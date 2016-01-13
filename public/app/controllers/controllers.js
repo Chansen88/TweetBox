@@ -23,6 +23,7 @@
         };
         vm.twitterfetch = function() {
           Twitter.fetch();
+          UserData.setSpotifyToken();
           // $interval(Twitter.fetch, 63000);
         };
         vm.changeSong = function(track, subtrack) {
@@ -35,7 +36,6 @@
 
         vm.spotifyAuth = function() {
           UserData.spotifyLogin();
-          localStorage.setItem('spotify-token', token);
         };
         vm.twitterAuth = function() {
           UserData.twitterLogin();
@@ -81,6 +81,12 @@
             track.playState = 'play_circle_outline';
           }
         };
+
+        vm.getCurrentUser = function() {
+          Spotify.getCurrentUser();
+          console.log(Spotify.getCurrentUser());
+        };
+
         vm.createPlaylist = function() {
           var trackIDs = [];
           for (var track of vm.tracks) {
