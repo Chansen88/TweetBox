@@ -90,9 +90,7 @@
         Playlist.trackData.forEach(function(track) {
           trackId.push(track.id);
         });
-        Playlist.parsedTrack[0] = $sce.trustAsResourceUrl(
-          'https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:' +
-          trackId.join(','));
+
       };
       Playlist.sub = function(trackOne, trackTwo) {
         var temp = {};
