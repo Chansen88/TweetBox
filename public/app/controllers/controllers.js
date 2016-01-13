@@ -13,6 +13,7 @@
           vm.previewPlay = {};
 
           vm.newPlaylist = function() {
+            console.log(vm.tracks);
             Twitter.new();
             Playlist.new();
             Twitter.fetch();

@@ -22,10 +22,10 @@
           this.score = 0;
           this.time = Date.now();
           this.subtracks = [];
-          this.subtracks.push(new Track([data[1]], false));
-          this.subtracks.push(new Track([data[2]], false));
-          this.subtracks.push(new Track([data[3]], false));
-          this.subtracks.push(new Track([data[4]], false));
+          this.subtracks.push(new Track([data[1]], false, 'play_circle_outline'));
+          this.subtracks.push(new Track([data[2]], false, 'play_circle_outline'));
+          this.subtracks.push(new Track([data[3]], false, 'play_circle_outline'));
+          this.subtracks.push(new Track([data[4]], false, 'play_circle_outline'));
         }
       };
 
