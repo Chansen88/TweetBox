@@ -95,6 +95,8 @@
           console.log(trackIDs);
 
           Spotify.getCurrentUser().then(function(data) {
+            console.log('#######');
+            console.log(data);
             var userID = data.id;
             var playlist_id = 'TweetBOX ' + moment().format('ll');
             Spotify
@@ -105,7 +107,7 @@
             });
             console.log(Spotify);
           }, function(error) {
-            $scope.performLogin();
+              console.log('ERROR');
           });
 
         };
