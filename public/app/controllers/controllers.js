@@ -81,6 +81,11 @@
             vm.previewPlay[track.name] = new Audio(track.previewUrl);
             vm.previewPlay[track.name].play();
             track.playState = 'pause_circle_outline';
+            setTimeout(function() {
+              if (track.playState === 'pause_circle_outline') {
+                track.playState = 'play_circle_outline';
+              };
+            }, 30000);
           } else {
             vm.previewPlay[track.name].pause();
             vm.previewPlay[track.name] = null;
