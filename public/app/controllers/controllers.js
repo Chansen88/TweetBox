@@ -69,7 +69,6 @@
               vm.previewPlay[track.name] = null;
               track.playState = 'play_circle_outline';
             }
-            console.log(vm.previewPlay);
           };
         }]);
 })();
