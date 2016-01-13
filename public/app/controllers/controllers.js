@@ -59,6 +59,7 @@
             console.log(data.tracks.items);
             for (var track of data.tracks.items) {
               track.playState = 'play_circle_outline';
+              track.previewUrl = track.preview_url;
             };
             vm.searchResults = data.tracks.items;
           });
