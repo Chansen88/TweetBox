@@ -103,6 +103,7 @@
           .then(function(data) {
             console.log('Created playlist' + vm.tracks);
           });
+          console.log(Spotify);
         };
       }
     ]);
