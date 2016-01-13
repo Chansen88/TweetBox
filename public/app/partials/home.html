@@ -21,6 +21,9 @@
       <li>
         <a class="cursor_pointer search-height" ng-click="vm.twitterfetch()">Fetch Tweets</a>
       </li>
+      <li ng-if='vm.tracks.length > 1'>
+        <a class="cursor_pointer search-height" ng-click="vm.createPlaylist()">Save Playlist</a>
+      </li>
     </ul>
   </div>
 </nav>

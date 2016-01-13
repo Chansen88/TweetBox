@@ -92,6 +92,17 @@
             track.playState = 'play_circle_outline';
           }
         };
+        vm.createPlaylist = function() {
+          var trackIDs = [];
+          for (track of vm.tracks) {
+            trackIDs.push(track.id);
+          }
+          Spotify
+          .createPlaylist(trackIDs, {name: 'TweetBOX ' + moment().format('ll')})
+          .then(function(data) {
+            console.log('Created playlist' + vm.tracks);
+          });
+        };
       }
     ]);
 })();
