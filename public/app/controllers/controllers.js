@@ -93,12 +93,21 @@
             trackIDs.push(track.id);
           }
           console.log(trackIDs);
-          Spotify
-          .createPlaylist(trackIDs, {name: 'TweetBOX ' + moment().format('ll')})
-          .then(function(data) {
-            console.log('Created playlist' + vm.tracks);
+
+          Spotify.getCurrentUser().then(function(data) {
+            var userID = data.id;
+            var playlist_id = 'TweetBOX ' + moment().format('ll');
+            Spotify
+            .createPlaylist(data.id, {name: playlist_id})
+            .then(function(data) {
+              console.log('Created playlist' + vm.tracks);
+              Spotify.addPlaylistTracks(vm.userID, playlist_id, trackIDs);
+            });
+            console.log(Spotify);
+          }, function(error) {
+            $scope.performLogin();
           });
-          console.log(Spotify);
+
         };
       }
     ]);

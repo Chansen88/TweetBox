@@ -88,11 +88,11 @@
           if (response.data != 'Err') {
             console.log('made it here');
             console.log(response);
-            var token = response.data;
-            console.log(token);
-            Spotify.setAuthToken(token);
+            var storedToken = response.data;
+            localStorage.setItem('spotify-token', storedToken);
+            console.log(storedToken);
+            Spotify.setAuthToken(storedToken);
             console.log(Spotify);
-            localStorage.setItem('spotify-token', token);
           }
         }, function errCallback(response) {
           console.log('Error while fetching spotify token');
