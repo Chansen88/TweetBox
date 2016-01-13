@@ -80,6 +80,21 @@
         $window.addEventListener('storage', UserData.storageChanged, false);
       };
 
+      UserData.setSpotifyToken = function() {
+        $http({
+          method: 'GET',
+          url: '/spotifytoken/'
+        }).then(function successCallback(response) {
+          var token = response;
+          console.log(token);
+          localStorage.setItem('spotify-token', token);
+          // $location.path('/close');
+        }, function errCallback(response) {
+          console.log('Error while fetching spotify token');
+          // $location.path('/close');
+        });
+      };
+
       return UserData;
     }]);
 })();

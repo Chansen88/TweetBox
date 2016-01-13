@@ -15,7 +15,7 @@ app.get('/spotifyauth', function(req, res) {
 
 app.get('/spotifycallback', function(req, res) {
   req.session.spotifyToken = req.query.code;
-  res.redirect('/#/close');
+  res.json(req.query.code);
 });
 
 app.use('/api', apiRouter);
