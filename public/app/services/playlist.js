@@ -8,7 +8,15 @@
 
       function Track(data, main) {
         this.id = data[0].id;
-        this.name = data[0].name;
+        var trackName = [];
+        for (word of data[0].name.split(' ')) {
+          if (trackName.join(' ').length < 42) {
+            trackName.push(word);
+          } else {
+            break;
+          }
+        }
+        this.name = trackName.join(' ');
         var tempArtists = [];
         data[0].artists.forEach(function(artist) {
           tempArtists.push(artist.name);
