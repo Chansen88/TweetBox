@@ -5,7 +5,7 @@
       function($http, Spotify, $sce) {
       var Playlist = {};
       Playlist.trackData = [];
-      Playlist.parsedTrack = [];
+      Playlist.parsedTrack = [false];
 
       function Track(data, main) {
         this.id = data[0].id;
@@ -17,7 +17,7 @@
         this.artists = tempArtists.join(', ');
         this.album = data[0].album.name;
         this.albumArt = data[0].album.images[1].url;
-        this.preview_url = data[0].preview_url;
+        this.previewUrl = data[0].preview_url;
         if (main) {
           this.score = 0;
           this.time = Date.now();
@@ -28,8 +28,6 @@
           this.subtracks.push(new Track([data[4]], false));
         }
       };
-
-      Playlist.parsedTrack = [false];
 
       Playlist.new = function() {
         Playlist.parsedTrack.length = 0;
@@ -64,7 +62,6 @@
         });
       };
 
-
       Playlist.addSearch = function(songdata) {
         if (songdata[0]) {
           var temp = _.find(
@@ -84,12 +81,10 @@
         };
       };
 
-
       Playlist.remove = function(track) {
         _.difference(Playlist.trackData, track);
         Playlist.sort();
       };
-
 
       Playlist.buildUrl = function() {
         var trackId = [];

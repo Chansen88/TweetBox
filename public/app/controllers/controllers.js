@@ -7,7 +7,7 @@
           $scope, Spotify, Twitter, Playlist, UserData, $interval
         ) {
           var vm = this;
-          vm.trackID = Playlist.parsedTrack;
+          // vm.trackID = Playlist.parsedTrack;
           vm.tracks = Playlist.trackData;
           vm.auth = Twitter.authval;
           Twitter.authCheck();
@@ -61,8 +61,8 @@
             vm.searchResults = {};
           };
           vm.playTrack = function(track) {
-            if (!vm.previewPlay[track.name]){
-              vm.previewPlay[track.name] = new Audio(track.preview_url);
+            if (!vm.previewPlay[track.name]) {
+              vm.previewPlay[track.name] = new Audio(track.previewUrl);
               vm.previewPlay[track.name].play();
             } else {
               vm.previewPlay[track.name].pause();
