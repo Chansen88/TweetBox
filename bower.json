@@ -17,6 +17,7 @@
     "env.json"
   ],
   "dependencies": {
-    "angular-spotify": "~1.0.0"
+    "angular-spotify": "~1.0.0",
+    "ngPopup": "ng-popup#~0.4.1"
   }
 }

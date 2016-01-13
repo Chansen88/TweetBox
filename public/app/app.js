@@ -1,7 +1,7 @@
 (function() {
   angular
     .module('tweetBoxApp', [
-      'ngRoute', 'spotify', 'ngCookies', 'ngResource', 'ngAnimate'
+      'ngRoute', 'spotify', 'ngCookies', 'ngResource', 'ngAnimate', 'ngPopup'
     ])
     .config(['$resourceProvider', '$routeProvider', '$locationProvider',
       function($resourceProvider, $routeProvider, $locationProvider) {
