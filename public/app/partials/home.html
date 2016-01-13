@@ -3,7 +3,7 @@
 <nav id="navbar-fixed">
   <div class="nav-wrapper #00e676 green accent-3">
     <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
-    <ul class="right hide-on-med-and-down" id="nav-mobile">
+    <ul class="hide-on-med-and-down" id="nav-mobile">
       <li ng-if='vm.tracks.length > 1'>
         <div class="input-field">
           <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
@@ -11,6 +11,8 @@
           <i class="material-icons" ng-click='vm.clearSearch()'>close</i>
         </div>
       </li>
+    </ul>
+    <ul class="right hide-on-med-and-down" id="nav-mobile">
       <li>
         <a class="cursor_pointer" ng-click="vm.newPlaylist()">New Playlist</a>
       </li>
