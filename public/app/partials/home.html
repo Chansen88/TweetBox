@@ -39,16 +39,20 @@
             <div class="row valign-wrapper" ng-if='vm.searchString'>
               <div class="col s6 push-s3 valign">
                 <ul class="collection content_scroll" id="searchReultContainer">
-                  <li class="collection-item avatar #424242 grey darken-3" ng-repeat="result in vm.searchResults">
-                    <img alt="{{result.name}}" ng-src="{{result.album.images[2].url}}">
-                    <span class="title">{{result.name}}</span>
-                    <p ng-repeat='artist in result.artists'>
-                      {{artist.name}} <br>
-                    </p>
-                    <a href="#!" class="secondary-content">
+                  <li class="collection-item #424242 grey darken-3" ng-repeat="result in vm.searchResults">
+                    <div class="col s2">
                       <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
                       <i class='material-icons cursor_pointer' ng-click='vm.playTrack(result)'>{{result.playState}}</i>
-                    </a>
+                    </div>
+                    <div class="col s3">
+                      <img alt="{{result.name}}"  ng-src="{{result.album.images[2].url}}">
+                    </div>
+                    <div class="col s7">
+                      <span class="title">{{result.name}}</span>
+                      <ul ng-repeat='artist in result.artists'>
+                        <li>{{artist.name}}</li>
+                      </ul>
+                    </div>
                   </li>
                 </ul>
               </div>
