@@ -5,7 +5,6 @@
       function($http, Spotify, $sce) {
       var Playlist = {};
       Playlist.trackData = [];
-      Playlist.parsedTrack = [false];
 
       function Track(data, main) {
         this.id = data[0].id;
@@ -18,6 +17,7 @@
         this.album = data[0].album.name;
         this.albumArt = data[0].album.images[1].url;
         this.previewUrl = data[0].preview_url;
+        this.playState = 'play_circle_outline';
         if (main) {
           this.score = 0;
           this.time = Date.now();
@@ -30,7 +30,6 @@
       };
 
       Playlist.new = function() {
-        Playlist.parsedTrack.length = 0;
         Playlist.trackData.length = 0;
       };
 
