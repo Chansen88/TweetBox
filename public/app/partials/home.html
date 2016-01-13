@@ -4,11 +4,11 @@
   <div class="nav-wrapper #00e676 green accent-3">
     <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
     <ul class="right hide-on-med-and-down" id="nav-mobile">
-      <li>
+      <li ng-if='vm.tracks.length > 1'>
         <div class="input-field">
           <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
-          <label for="track_search">Add Song</label>
-          <i class="material-icons">close</i>
+          <label for="track_search"><i class="material-icons">search</i></label>
+          <i class="material-icons" ng-click='vm.clearSearch()'>close</i>
         </div>
       </li>
       <li>
@@ -33,17 +33,6 @@
       <div class="col s12 ">
         <div class="card #212121 grey darken-4">
           <div class="card-content white-text">
-            <div class="input-field">
-              <div class="row valign-wrapper">
-                <div class="col s5 valign">
-                  <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="text">
-                  <label for="track_search">Add Song</label>
-                </div>
-                <div class="col s1 valign">
-                  <i class="fa fa-times cursor_pointer" ng-click='vm.clearSearch()'></i>
-                </div>
-              </div>
-            </div>
             <div class="row valign-wrapper" ng-if='vm.searchString'>
               <div class="col s6 push-s3 valign content_scroll">
                 <ul class="collection">
