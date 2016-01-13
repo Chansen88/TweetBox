@@ -3,14 +3,14 @@
 <nav id="navbar-fixed">
   <div class="nav-wrapper #00e676 green accent-3">
     <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
-    <form>
-      <div class="input-field">
-        <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
-        <label for="track_search">Add Song</label>
-        <i class="material-icons">close</i>
-      </div>
-    </form>
     <ul class="right hide-on-med-and-down" id="nav-mobile">
+      <li>
+        <div class="input-field">
+          <input id="track_search" ng-change="vm.searchSpotify(vm.searchString)" ng-model="vm.searchString" type="search" required>
+          <label for="track_search">Add Song</label>
+          <i class="material-icons">close</i>
+        </div>
+      </li>
       <li>
         <a class="cursor_pointer" ng-click="vm.newPlaylist()">New Playlist</a>
       </li>
