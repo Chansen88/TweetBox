@@ -2,7 +2,7 @@
 
 <nav id="navbar-fixed">
   <div class="nav-wrapper #00e676 green accent-3">
-    <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo" /></a>
+    <a class="brand-logo" href="/#/"><img src="/images/logosm.png" alt="TwitList Logo"/></a>
     <ul class="right hide-on-med-and-down" id="nav-mobile">
       <li>
         <a class="cursor_pointer" ng-click="vm.newPlaylist()">New Playlist</a>
@@ -18,7 +18,7 @@
 
 <div class="container" id="main-content">
   <div ng-if='vm.tracks.length < 2' class="center-align top_margin">
-    <div ng-click="vm.twitterfetch()" class="waves-effect waves-light extralarge#424242 grey darken-3"><img src="/images/createPlaylistButton.png" alt="Create Playlist Button" /></div>
+    <div ng-click="vm.twitterfetch()" class="waves-effect waves-light extralarge#424242 grey darken-3"><img src="/images/createPlaylistButton.png" alt="Create Playlist Button"/></div>
   </div>
   <div ng-if='vm.tracks.length > 1' class="main_scroll">
     <div class="row">
@@ -36,24 +36,22 @@
                 </div>
               </div>
             </div>
-            <div  class="row valign-wrapper" ng-if='vm.searchString'>
+            <div class="row valign-wrapper" ng-if='vm.searchString'>
               <div class="col s6 push-s3 valign">
                 <div class="card #212121 grey darken-4 content_scroll" id="searchReultContainer">
-                  <div class="card-content">
-                    <ul class="collection">
-                      <li class="collection-item avatar fade #424242 grey darken-3" ng-repeat="result in vm.searchResults">
-                        <img alt="{{result.name}}" ng-src="{{result.album.images[2].url}}">
-                        <span class="title">{{result.name}}</span>
-                        <p ng-repeat='artist in result.artists'>
-                          {{artist.name}}
-                        </p>
-                        <a href="#!">
-                          <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
-                          <i class='material-icons cursor_pointer' ng-click='vm.playTrack(result)'>{{result.playState}}</i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  <ul class="collection">
+                    <li class="collection-item avatar fade #424242 grey darken-3" ng-repeat="result in vm.searchResults">
+                      <img alt="{{result.name}}" ng-src="{{result.album.images[2].url}}">
+                      <span class="title">{{result.name}}</span>
+                      <p ng-repeat='artist in result.artists'>
+                        {{artist.name}}
+                      </p>
+                      <a href="#!">
+                        <i class='material-icons cursor_pointer' ng-click="vm.addSong(result)">playlist_add</i>
+                        <i class='material-icons cursor_pointer' ng-click='vm.playTrack(result)'>{{result.playState}}</i>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -180,20 +178,20 @@
 
 <!-- Modal Structure -->
 <div class="modal" id="modal1">
-<div class="modal-content center-align #9e9e9e grey">
+  <div class="modal-content center-align #9e9e9e grey">
 
-  <h4>Authorize Twitter and Spotify</h4>
-  <p>Sign Into Spotify</p>
-  <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click='vm.spotifyAuth()'>
-    Spotify
-  </button>
+    <h4>Authorize Twitter and Spotify</h4>
+    <p>Sign Into Spotify</p>
+    <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click='vm.spotifyAuth()'>
+      Spotify
+    </button>
 
-  <p>Sign Into Twitter</p>
-  <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click='vm.twitterAuth()'>
-    Twitter
-  </button>
-</div>
-<div class="modal-footer">
-  <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
-</div>
+    <p>Sign Into Twitter</p>
+    <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click='vm.twitterAuth()'>
+      Twitter
+    </button>
+  </div>
+  <div class="modal-footer">
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
+  </div>
 </div>
