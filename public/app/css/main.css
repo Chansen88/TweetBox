@@ -16,6 +16,10 @@ body {
   margin-left: 150px;
 }
 
+.search-height{
+  height: 64px;
+}
+
 .fixed{
   top: 10%;
   height: 100%;
