@@ -16,6 +16,7 @@
           width: 200,
           height: 200,
           templateUrl: "<h1>HELLO</h1>",
+          isMinimized: false,
           resizable: false,
           draggable: false,
           hasTitleBar: false,
@@ -57,6 +58,7 @@
         vm.searchSpotify = function(searchString) {
           Spotify.searchAll(searchString).then(function(data) {
             vm.searchResults = data.tracks.items;
+            console.log(data.tracks.items);
           });
         };
         vm.addSong = function(trackObj) {
