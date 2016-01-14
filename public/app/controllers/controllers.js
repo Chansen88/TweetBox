@@ -116,9 +116,8 @@
                     url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
                     method: 'POST',
                     headers: {
-                      'Accept': 'application/json',
                       'Content-Type': 'application/json;',
-                      'Authorization:': 'Bearer ' + localStorage.getItem('spotify-token')
+                      'Authorization': 'Bearer ' + localStorage.getItem('spotify-token')
                     },
                   });
                 });
