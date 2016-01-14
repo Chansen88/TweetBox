@@ -20,7 +20,6 @@ app.get('/spotifyauth', function(req, res) {
 });
 
 app.get('/spotifycallback', function(req, res) {
-  console.log(req.query);
   if (req.query.code) {
     var code = req.query.code;
     spotifyApi.authorizationCodeGrant(code)
@@ -34,7 +33,6 @@ app.get('/spotifycallback', function(req, res) {
 });
 
 app.get('/spotifyToken', function(req, res) {
-  console.log('Sending Token: ', req.session.spotifyToken);
   res.json(req.session.spotifyToken);
 });
 
