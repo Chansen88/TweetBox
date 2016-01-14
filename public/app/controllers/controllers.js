@@ -96,7 +96,7 @@
               }
               console.log(trackIDs);
 
-              var trackIdString = trackIDs.join('');
+              var trackIdString = trackIDs.join(',');
               console.log(trackIdString);
 
               Spotify.getCurrentUser()
