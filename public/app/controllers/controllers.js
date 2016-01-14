@@ -94,21 +94,27 @@
           }
           console.log(trackIDs);
 
-          Spotify.getCurrentUser().then(function(data) {
-            console.log('#######');
-            console.log(data);
-            var userID = data.id;
-            var playlist_id = 'TweetBOX ' + moment().format('ll');
-            Spotify
-            .createPlaylist(data.id, {name: playlist_id})
-            .then(function(data) {
-              console.log('Created playlist' + vm.tracks);
-              Spotify.addPlaylistTracks(vm.userID, playlist_id, trackIDs);
-            });
-            console.log(Spotify);
+          Spotify.getCurrentUser().then(function (data) {
+            console.log(data);;
           }, function(error) {
-              console.log('ERROR');
+            $scope.performLogin();
           });
+
+          // Spotify.getCurrentUser().then(function(data) {
+          //   console.log('#######');
+          //   console.log(data);
+          //   var userID = data.id;
+          //   var playlist_id = 'TweetBOX ' + moment().format('ll');
+          //   Spotify
+          //   .createPlaylist(data.id, {name: playlist_id})
+          //   .then(function(data) {
+          //     console.log('Created playlist' + vm.tracks);
+          //     Spotify.addPlaylistTracks(vm.userID, playlist_id, trackIDs);
+          //   });
+          //   console.log(Spotify);
+          // }, function(error) {
+          //     console.log('ERROR');
+          // });
 
         };
       }
