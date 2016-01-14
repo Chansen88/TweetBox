@@ -87,7 +87,7 @@
 
           _auth: function(isJson) {
             var auth = {
-              'Authorization': 'Bearer ' + this.authToken
+              'Authorization': 'Bearer ' + localStorage.getItem('spotify-token');
             };
             if (isJson) {
               auth['Content-Type'] = 'application/json';
