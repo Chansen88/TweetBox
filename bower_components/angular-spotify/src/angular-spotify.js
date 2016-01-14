@@ -23,6 +23,7 @@
 
       this.setAuthToken = function(authToken) {
         settings.authToken = authToken;
+        console.log(settings);
         return settings.authToken;
       };
 
@@ -87,7 +88,7 @@
 
           _auth: function(isJson) {
             var auth = {
-              'Authorization': 'Bearer ' + localStorage.getItem('spotify-token');
+              'Authorization': 'Bearer ' + this.authToken
             };
             if (isJson) {
               auth['Content-Type'] = 'application/json';

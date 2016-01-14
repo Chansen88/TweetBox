@@ -20,6 +20,7 @@
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
     "node-localstorage": "^0.6.0",
-    "node-twitter-api": "^1.6.1"
+    "node-twitter-api": "^1.6.1",
+    "spotify-web-api-node": "^2.2.0"
   }
 }

@@ -3,9 +3,9 @@
 (function() {
   angular
     .module('tweetBoxApp')
-    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$cookies',
+    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$cookies', '$http',
       function(
-        $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies
+        $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies, $http
       ) {
         var vm = this;
         vm.tracks = Playlist.trackData;
@@ -88,35 +88,44 @@
         };
 
         vm.createPlaylist = function() {
-          var trackIDs = [];
-          for (var track of vm.tracks) {
-            trackIDs.push(track.id);
-          }
-          console.log(trackIDs);
+              console.log(Spotify);
+              var trackIDs = [];
+              var tracks = Playlist.trackData;
+              for (var track of tracks) {
+                trackIDs.push('spotify:track:' + track.id);
+              }
+              console.log(trackIDs);
 
-          Spotify.getCurrentUser().then(function (data) {
-            console.log(data);;
-          }, function(error) {
-            $scope.performLogin();
-          });
+              var trackIdString = trackIDs.join('');
+              console.log(trackIdString);
 
-          // Spotify.getCurrentUser().then(function(data) {
-          //   console.log('#######');
-          //   console.log(data);
-          //   var userID = data.id;
-          //   var playlist_id = 'TweetBOX ' + moment().format('ll');
-          //   Spotify
-          //   .createPlaylist(data.id, {name: playlist_id})
-          //   .then(function(data) {
-          //     console.log('Created playlist' + vm.tracks);
-          //     Spotify.addPlaylistTracks(vm.userID, playlist_id, trackIDs);
-          //   });
-          //   console.log(Spotify);
-          // }, function(error) {
-          //     console.log('ERROR');
-          // });
+              Spotify.getCurrentUser()
+              .then(function(data) {
+                console.log('#######');
+                console.log(data);
+                var userId = data.id;
+                console.log(data.id);
+                var playlistId = 'tweetBox';
 
-        };
+                Spotify
+                .createPlaylist(data.id, {name: playlistId})
+                .then(function(data) {
+                  console.log('PLAYLIST DATA', data);
+                  console.log('https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString());
+                  $http({
+                    url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json;',
+                      'Authorization': 'Bearer ' + localStorage.getItem('spotify-token'),
+                    },
+                  });
+                });
+                console.log(Spotify);
+              }, function(error) {
+                console.log('ERROR');
+              });
+            }
       }
     ]);
 })();

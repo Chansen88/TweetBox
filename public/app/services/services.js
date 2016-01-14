@@ -85,15 +85,9 @@
           method: 'GET',
           url: '/spotifytoken/'
         }).then(function successCallback(response) {
-          if (response.data != 'Err') {
-            console.log('made it here');
-            console.log(response);
-            var storedToken = response.data;
-            localStorage.setItem('spotify-token', storedToken);
-            console.log(storedToken);
-            Spotify.setAuthToken(storedToken);
-            console.log(Spotify);
-          }
+          var storedToken = response.data;
+          localStorage.setItem('spotify-token', storedToken);
+          Spotify.setAuthToken(storedToken);
         }, function errCallback(response) {
           console.log('Error while fetching spotify token');
         });

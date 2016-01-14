@@ -23,7 +23,7 @@
         }, function errorCallback(response) {
           console.log('Cant get these tweets man');
         });
-      }
+      };
 
       Twitter.fetch = function() {
         console.log('twitterfetching');
