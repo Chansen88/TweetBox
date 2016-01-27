@@ -3,7 +3,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 var config = require('../env.json')[process.env.NODE_ENV || 'development'];
 var myClientId = config.SPOTIFY_CLIENT_ID;
 var mySecret = config.SPOTIFY_CLIENT_SECRET;
-var redirectUri = 'https://obscure-brushlands-6394.herokuapp.com/spotifycallback';
+var redirectUri = config.SPOTIFY_CALLBACK;
 var scopes = 'user-read-private user-read-email playlist-modify-public playlist-modify-private user-follow-read user-library-read user-library-modify user-read-private user-read-birthdate';
 var spotifyApi = new SpotifyWebApi({
   clientId: myClientId,

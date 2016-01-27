@@ -3,7 +3,7 @@ var config = require('../env.json')[process.env.NODE_ENV || 'development'];
 var twitter = new twitterAPI({
   consumerKey: config.TWITTER_CONSUMER_KEY,
   consumerSecret: config.TWITTER_CONSUMER_SECRET,
-  callback: 'http://127.0.0.1:3000/'
+  callback: config.TWITTER_CALLBACK
 });
 
 apiRouter.route('/twittertoken')
