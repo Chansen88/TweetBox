@@ -83,7 +83,7 @@
       UserData.setSpotifyToken = function() {
         $http({
           method: 'GET',
-          url: '/api/spotifytoken/'
+          url: '/spotifytoken/'
         }).then(function successCallback(response) {
           var storedToken = response.data;
           localStorage.setItem('spotify-token', storedToken);
