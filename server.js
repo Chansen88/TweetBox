@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('cookie-session');
 var db = require('./models');
-var config = require('./env.json')[process.env.NODE_ENV || 'production'];
+var config = require('./env.json')[process.env.NODE_ENV || 'development'];
 
 apiRouter = express.Router();
 app = express();
