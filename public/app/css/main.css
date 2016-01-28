@@ -1,4 +1,8 @@
 /* add custom styles */
+document {
+  min-width: 1025px;
+}
+
 body {
   background: RGBA(25, 25, 25, 1);
 }
@@ -19,7 +23,7 @@ body {
 }
 
 .search-padding{
-  margin-left: 150px;
+  margin-left: 100px;
 }
 
 .search-height{
