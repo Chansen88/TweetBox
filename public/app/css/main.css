@@ -9,6 +9,7 @@ body {
   width: 100%;
   position: fixed;
 }
+
 .search-width {
   width: 500px;
 }
@@ -30,16 +31,20 @@ body {
   height: 100%;
   position: fixed;
 }
+
 .scroll{
   position: relative;
   top: 150vh;
 }
+
 .search_results:hover{
   color: #00e676;
 }
+
 .cursor_pointer:hover{
   cursor:pointer;
 }
+
 .extralarge{
   border: none;
   padding: 40px;
@@ -49,6 +54,7 @@ body {
   overflow-y: scroll;
   height:300px;
 }
+
 /*****************ANIMATION*********************/
 .fade {
   transition: 1s linear all;
