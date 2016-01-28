@@ -16,3 +16,8 @@ Using TweetBOX:
   * Save the playlist
 
 The app is currently located at **obscure-brushlands-6394.herokuapp.com**. Feel free to try it out!
+
+![screenshot](https://github.com/Chansen88/TweetBox/blob/master/Screen%20Shot%202016-01-28%20at%2010.35.51%20AM.png)
+![screenshot](https://github.com/Chansen88/TweetBox/blob/master/Screen%20Shot%202016-01-28%20at%2010.36.13%20AM.png)
+
+Shout out to [Teagan Wrest](https://github.com/wrestt) for his contributions.
