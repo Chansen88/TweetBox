@@ -13,8 +13,10 @@ apiRouter.route('/twittertoken')
     req.session.oauth_verifier,
     function(error, accessToken, accessTokenSecret, results) {
       if (error) {
+        console.log('error');
         res.redirect('/#/account');
       } else {
+        console.log('working');
         req.session.accessToken = accessToken;
         req.session.accessTokenSecret = accessTokenSecret;
         res.redirect('/#/close');
