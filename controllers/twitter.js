@@ -13,7 +13,6 @@ apiRouter.route('/twittertoken')
     req.session.oauth_verifier,
     function(error, accessToken, accessTokenSecret, results) {
       if (error) {
-        console.log(error);
         res.redirect('/#/account');
       } else {
         req.session.accessToken = accessToken;
@@ -25,8 +24,6 @@ apiRouter.route('/twittertoken')
 
 apiRouter.route('/twitterfetch')
 .post(function(req, res) {
-  console.log('controller test');
-  console.log(req.body);
   twitter.getTimeline('mentions_timeline', req.body,
   req.session.accessToken, req.session.accessTokenSecret,
   function(error, data, response) {
