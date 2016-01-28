@@ -1,7 +1,7 @@
 (function() {
   angular
     .module('tweetBoxApp', [
-      'ngRoute', 'spotify', 'ngCookies', 'ngResource', 'ngAnimate',
+      'ngRoute', 'spotify', 'ngResource', 'ngAnimate',
     ])
     .config(['$resourceProvider', '$routeProvider', '$locationProvider', 'SpotifyProvider',
       function($resourceProvider, $routeProvider, $locationProvider, SpotifyProvider) {
@@ -15,15 +15,15 @@
           .when('/', {
             templateUrl: '/app/partials/home.html',
             controller: 'MainController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
           })
           .when('/close', {
             templateUrl: '/app/partials/callback.html',
             controller: 'CallBackController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
           })
           .otherwise({
-            redirectTo: '/'
+            redirectTo: '/',
           });
-      }]);
+      }, ]);
 })();

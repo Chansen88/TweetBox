@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "angular-spotify": "~1.0.0",
-    "ngPopup": "ng-popup#~0.4.1"
+    "angular": "^1.4.9",
+    "angular-animate": "^1.4.9"
   }
 }

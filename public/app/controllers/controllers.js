@@ -3,13 +3,14 @@
 (function() {
   angular
     .module('tweetBoxApp')
-    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$cookies', '$http',
+    .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$http',
       function(
         $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies, $http
       ) {
         var vm = this;
         vm.tracks = Playlist.trackData;
         vm.auth = Twitter.authval;
+        Twitter.authval[0] = true;
         Twitter.authCheck();
         vm.previewPlay = {};
 
@@ -26,6 +27,7 @@
         vm.twitterfetch = function() {
           Twitter.fetch();
           UserData.setSpotifyToken();
+
           // $interval(Twitter.fetch, 63000);
         };
 
@@ -34,7 +36,7 @@
         };
 
         vm.openauth = function() {
-          $('#modal1').openModal();
+          $('#modal-twitter').openModal();
         };
 
         vm.spotifyAuth = function() {
@@ -58,6 +60,7 @@
               track.playState = 'play_circle_outline';
               track.previewUrl = track.preview_url;
             };
+
             vm.searchResults = data.tracks.items;
           });
         };
@@ -98,36 +101,50 @@
           Spotify.getCurrentUser();
         };
 
-        vm.createPlaylist = function() {
-              var trackIDs = [];
-              var tracks = Playlist.trackData;
-              for (var track of tracks) {
-                trackIDs.push('spotify:track:' + track.id);
-              }
+        vm.openPlaylistCreate = function() {
+          Spotify.getCurrentUser()
+            .then(function(data) {
+            $('#modal-playlist').openModal();
+          }, function(error) {
 
-              var trackIdString = trackIDs.join(',');
+            $('#modal-spotify').openModal();
+          });
+        };
 
-              Spotify.getCurrentUser()
-              .then(function(data) {
-                var userId = data.id;
-                var playlistId = 'tweetBox';
+        vm.createPlaylist = function(name) {
+          if (name == undefined) name = 'TweetBOX';
+          console.log(name);
+          var trackIDs = [];
+          var tracks = Playlist.trackData;
+          for (var track of tracks) {
+            trackIDs.push('spotify:track:' + track.id);
+          }
 
-                Spotify
-                .createPlaylist(data.id, {name: playlistId})
-                .then(function(data) {
-                  $http({
-                    url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': 'Bearer ' + localStorage.getItem('spotify-token')
-                    },
-                  });
-                });
-              }, function(error) {
-                console.log('ERROR');
+          var trackIdString = trackIDs.join(',');
+
+          Spotify.getCurrentUser()
+          .then(function(data) {
+            var userId = data.id;
+
+            Spotify
+            .createPlaylist(data.id, { name: name })
+            .then(function(data) {
+              $http({
+                url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: 'Bearer ' + localStorage.getItem('spotify-token'),
+                },
               });
-            }
-      }
+            });
+          }, function(error) {
+
+            console.log('ERROR');
+          });
+
+          $('#modal-playlist').closeModal();
+        };
+      },
     ]);
 })();
