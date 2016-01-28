@@ -52,7 +52,7 @@ body {
 
 .content_scroll {
   overflow-y: scroll;
-  height:300px;
+  height:350px;
 }
 
 /*****************ANIMATION*********************/
@@ -74,12 +74,4 @@ body {
 }
 .top_margin {
   margin-top: 100px;
-}
-.chriscontainer {
-  margin: 100px;
-}
-
-.track-container {
-  display: flex;
-  align-content: center;
 }
