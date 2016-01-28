@@ -12,6 +12,11 @@ body {
 .search-width {
   width: 500px;
 }
+
+.margin-center {
+  margin: 0 auto;
+}
+
 .search-padding{
   margin-left: 150px;
 }
