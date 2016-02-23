@@ -22,7 +22,7 @@
 
       UserData.spotifyLogin = function() {
         var authWindow = window.open(
-          '/spotifyauth',
+          '/api/spotifyauth',
           'Spotify',
           'menubar=no,location=no,resizable=yes,scrollbars=yes,status=no,width='
             + w + ',height=' + h + ',top=' + top + ',left=' + left
@@ -33,7 +33,7 @@
       UserData.setSpotifyToken = function() {
         $http({
           method: 'GET',
-          url: '/spotifytoken/',
+          url: '/api/spotifytoken/',
         }).then(function successCallback(response) {
           var storedToken = response.data;
           localStorage.setItem('spotify-token', storedToken);
@@ -45,5 +45,6 @@
       };
 
       return UserData;
-    },]);
+    },
+  ]);
 })();
