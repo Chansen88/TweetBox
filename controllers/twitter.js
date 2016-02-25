@@ -8,9 +8,6 @@ var twitter = new twitterAPI({
 
 apiRouter.route('/twittertoken')
   .get(function (req, res) {
-    console.log(req.session.isNew);
-    console.log(req.session.requestTokenSecret);
-    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%');
     twitter.getAccessToken(req.query.oauth_token,
     req.session.requestTokenSecret,
     req.query.oauth_verifier,
@@ -28,8 +25,6 @@ apiRouter.route('/twittertoken')
 
 apiRouter.route('/twitterfetch')
 .post(function (req, res) {
-  console.log(req.session);
-  console.log('work');
   twitter.getTimeline('mentions_timeline', req.body,
   req.session.accessToken, req.session.accessTokenSecret,
   function (error, data, response) {
@@ -48,12 +43,10 @@ apiRouter.route('/twitterfetch')
 
 apiRouter.route('/authcheck')
 .post(function (req, res) {
-  console.log(req.session);
-  console.log(req.session.accessTokenSecret);
   twitter.verifyCredentials(req.session.accessToken,
     req.session.accessTokenSecret, function (error, data, response) {
     if (error) {
-      console.error('Twitter login Error');
+      console.error('Twitter login Error' + error);
       res.status(401).json({
               error: true,
               data: { loginStatus: false },
@@ -76,7 +69,6 @@ apiRouter.route('/twitterauth')
     } else {
       req.session.requestToken = requestToken;
       req.session.requestTokenSecret = requestTokenSecret;
-      console.log(requestToken);
       userredirect(requestToken);
     }
 

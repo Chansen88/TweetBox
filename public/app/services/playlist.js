@@ -1,8 +1,8 @@
-(function() {
+(function () {
   angular
     .module('tweetBoxApp')
     .factory('Playlist', ['$http', 'Spotify', '$sce',
-      function($http, Spotify, $sce) {
+      function ($http, Spotify, $sce) {
       var Playlist = {};
       Playlist.trackData = [];
 
@@ -16,11 +16,13 @@
             break;
           }
         }
+
         this.name = trackName.join(' ');
         var tempArtists = [];
-        data[0].artists.forEach(function(artist) {
+        data[0].artists.forEach(function (artist) {
           tempArtists.push(artist.name);
         });
+
         this.artists = tempArtists.join(', ');
         this.album = data[0].album.name;
         this.albumArt = data[0].album.images[1].url;
@@ -37,19 +39,19 @@
         }
       };
 
-      Playlist.new = function() {
+      Playlist.new = function () {
         Playlist.trackData.length = 0;
       };
 
-      Playlist.intake = function(songs) {
+      Playlist.intake = function (songs) {
         console.log(songs);
         for (var i = songs.length - 1; i >= 0; i--) {
           Playlist.add(songs[i]);
         }
       };
 
-      Playlist.add = function(song) {
-        Spotify.searchAll(song).then(function(data) {
+      Playlist.add = function (song) {
+        Spotify.searchAll(song).then(function (data) {
           console.log(data.tracks.items[0]);
           if (data.tracks.items[0]) {
             var temp = _.find(
@@ -58,18 +60,19 @@
               )
             );
             if (temp) {
-              temp.score ++;
+              temp.score++;
             } else {
               Playlist.trackData.push(
                 new Track(data.tracks.items.slice(0, 5), true)
               );
             }
+
             Playlist.sort();
           }
         });
       };
 
-      Playlist.addSearch = function(songdata) {
+      Playlist.addSearch = function (songdata) {
         if (songdata[0]) {
           var temp = _.find(
             Playlist.trackData, _.matchesProperty(
@@ -77,30 +80,32 @@
             )
           );
           if (temp) {
-            temp.score ++;
+            temp.score++;
           } else {
             var newTrack = new Track(songdata, false);
             newTrack.score = 0;
             newTrack.time = Date.now();
             Playlist.trackData.push(newTrack);
           }
+
           Playlist.sort();
         };
       };
 
-      Playlist.remove = function(track) {
+      Playlist.remove = function (track) {
         _.difference(Playlist.trackData, track);
         Playlist.sort();
       };
 
-      Playlist.buildUrl = function() {
+      Playlist.buildUrl = function () {
         var trackId = [];
-        Playlist.trackData.forEach(function(track) {
+        Playlist.trackData.forEach(function (track) {
           trackId.push(track.id);
         });
 
       };
-      Playlist.sub = function(trackOne, trackTwo) {
+
+      Playlist.sub = function (trackOne, trackTwo) {
         var temp = {};
         temp.id = trackOne.id;
         temp.name = trackOne.name;
@@ -126,7 +131,7 @@
         Playlist.buildUrl();
       };
 
-      Playlist.sort = function() {
+      Playlist.sort = function () {
         Playlist.trackData.sort(compare);
         function compare(a, b) {
           if (a.score > b.score) {
@@ -134,25 +139,27 @@
           } else if (a.score < b.score) {
             return 1;
           }
+
           if (a.time > b.time) {
             return 1;
           } else {
             return -1;
           }
         }
+
         Playlist.buildUrl();
       };
 
-      Playlist.scoreChange = function(track, adj) {
+      Playlist.scoreChange = function (track, adj) {
         track.score += adj;
         Playlist.sort();
       };
 
-      Playlist.remove = function(track) {
+      Playlist.remove = function (track) {
         _.remove(Playlist.trackData, track);
         Playlist.sort();
       };
 
       return Playlist;
-    }]);
+    },]);
 })();

@@ -184,31 +184,21 @@
 </div>
 </div>
 
-<!-- Modal Structure for Sigin -->
-<div class="modal" id="modal-twitter">
+<!-- Modal Structure -->
+
+<div class="modal" id="modal-custom">
   <div class="modal-content center-align #9e9e9e grey">
-    <twitter-login></twitter-login>
+    <div ng-if="vm.modalType == 'twitterLogin' ">
+      <twitter-login></twitter-login>
+    </div>
+    <div ng-if="vm.modalType == 'spotifyLogin' ">
+      <spotify-login></spotify-login>
+    </div>
+    <div ng-if="vm.modalType == 'spotifyPlaylist' ">
+      <spotify-playlist></spotify-playlist>
+    </div>
   </div>
   <div class="modal-footer ">
-    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
-  </div>
-</div>
-
-<div class="modal" id="modal-spotify">
-  <div class="modal-content center-align #9e9e9e grey">
-    <spotify-login></spotify-login>
-  </div>
-  <div class="modal-footer ">
-    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="vm.openPlaylistCreate()" href="#!">Close</a>
-  </div>
-</div>
-
-<!-- Modal Structure Create Playlist-->
-<div class="modal" id="modal-playlist">
-  <div class="modal-content center-align #9e9e9e grey">
-    <spotify-playlist></spotify-playlist>
-  </div>
-  <div class="modal-footer">
-    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
+    <a class=" modal-action waves-effect waves-green btn-flat" ng-click="vm.modalCloseCheck()" href="#!">Close</a>
   </div>
 </div>

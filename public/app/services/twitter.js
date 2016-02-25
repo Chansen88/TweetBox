@@ -44,7 +44,6 @@
             withCredentials: true,
           },
         }).then(function successCallback(response) {
-          console.log(response);
           if (response.data.lastId) {
             Twitter.lastId = response.data.lastId;
             Twitter.tweets.push.apply(Twitter.tweets, response.data.tweets);
@@ -57,7 +56,6 @@
       };
 
       Twitter.authCheck = function () {
-        console.log('checking auth');
         $http({
           method: 'POST',
           dataType: 'JSONP',
@@ -67,7 +65,7 @@
           },
         }).then(function successCallback(response) {
           Twitter.authval[0] = response.data.data.loginStatus;
-
+          console.log(response.data.data.loginStatus);
         }, function errorCallback(response) {
 
           console.log('Not Logged into TWITTER');
@@ -76,5 +74,5 @@
       };
 
       return Twitter;
-    },]);
+    }, ]);
 })();

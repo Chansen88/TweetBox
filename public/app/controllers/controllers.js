@@ -13,6 +13,7 @@
         Twitter.authval[0] = true;
         Twitter.authCheck();
         vm.previewPlay = {};
+        vm.modalType = 'spotifyPlaylist';
 
         vm.newPlaylist = function () {
           Twitter.new();
@@ -28,7 +29,8 @@
 
         vm.twitterfetch = function () {
           if (Twitter.authval[0] == false) {
-            $('#modal-twitter').openModal();
+            vm.modalType = 'twitterLogin';
+            $('#modal-custom').openModal();
           } else {
             Twitter.fetch();
             UserData.setSpotifyToken();
@@ -42,7 +44,8 @@
         };
 
         vm.openauth = function () {
-          $('#modal-twitter').openModal();
+          vm.modalType = 'twitterLogin';
+          $('#modal-custom').openModal();
         };
 
         vm.spotifyAuth = function () {
@@ -111,16 +114,20 @@
           UserData.setSpotifyToken();
           Spotify.getCurrentUser()
             .then(function (data) {
-              $('#modal-playlist').openModal();
+              vm.modalType = 'spotifyPlaylist';
+              console.log(vm.modalType);
+              console.log('spotifyPlaylist');
+              $('#modal-custom').openModal();
             }, function (error) {
 
-              $('#modal-spotify').openModal();
+              console.log(vm.modalType);
+              vm.modalType = 'spotifyLogin';
+              $('#modal-custom').openModal();
             });
         };
 
         vm.createPlaylist = function (name) {
           if (name == undefined) name = 'TweetBOX';
-          console.log(name);
           var trackIDs = [];
           var tracks = Playlist.trackData;
           for (var track of tracks) {
@@ -136,7 +143,6 @@
             Spotify
             .createPlaylist(data.id, { name: name })
             .then(function (data) {
-              console.log('hello');
               $http({
                 url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
                 method: 'POST',
@@ -153,7 +159,22 @@
             console.log('ERROR');
           });
 
-          $('#modal-playlist').closeModal();
+          $('#modal-custom').closeModal();
+        };
+
+        vm.modalCloseCheck = function () {
+          switch (vm.modalType) {
+            case 'twitterLogin':
+              $('#modal-custom').closeModal();
+              break;
+            case 'spotifyLogin':
+              $('#modal-custom').closeModal();
+              vm.openPlaylistCreate();
+              break;
+            default:
+              $('#modal-custom').closeModal();
+              break;
+          }
         };
       },
     ]);

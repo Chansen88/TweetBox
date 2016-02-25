@@ -34,7 +34,6 @@
           method: 'GET',
           url: '/api/spotifytoken/',
         }).then(function successCallback(response) {
-          console.log('spotify auth set');
           var storedToken = response.data;
           localStorage.setItem('spotify-token', storedToken);
           Spotify.setAuthToken(storedToken);
