@@ -8,10 +8,11 @@ var scopes = 'user-read-private user-read-email playlist-modify-public playlist-
 var spotifyApi = new SpotifyWebApi({
   clientId: myClientId,
   clientSecret: mySecret,
-  redirectUri: redirectUri
+  redirectUri: redirectUri,
 });
 
-app.get('/spotifyauth', function(req, res) {
+apiRouter.route('/spotifyauth')
+.get(function (req, res) {
   res.redirect('https://accounts.spotify.com/authorize' +
     '?response_type=code' +
     '&client_id=' + myClientId +
@@ -19,20 +20,23 @@ app.get('/spotifyauth', function(req, res) {
     '&redirect_uri=' + encodeURIComponent(redirectUri));
 });
 
-app.get('/spotifycallback', function(req, res) {
+apiRouter.route('/spotifycallback')
+.get(function (req, res) {
   if (req.query.code) {
     var code = req.query.code;
     spotifyApi.authorizationCodeGrant(code)
-   .then(function(data) {
+   .then(function (data) {
      req.session.spotifyToken = data.body.access_token;
      res.redirect('/#/close');
-   }, function(err) {
+   }, function (err) {
+
      console.log('Something went wrong!', err);
    });
   }
 });
 
-app.get('/spotifyToken', function(req, res) {
+apiRouter.route('/spotifyToken')
+.get(function (req, res) {
   res.json(req.session.spotifyToken);
 });
 

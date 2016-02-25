@@ -8,7 +8,7 @@
         // $resourceProvider.defaults.stripTrailingSlashes = false;
         SpotifyProvider.setClientId('634a5dc250544991b91a8be0874b61be');
         SpotifyProvider.setRedirectUri(
-          '/spotifycallback'
+          '/api/spotifycallback'
         );
         SpotifyProvider.setScope('playlist-read-private');
         $routeProvider
