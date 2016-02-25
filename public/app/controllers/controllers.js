@@ -5,7 +5,7 @@
     .module('tweetBoxApp')
     .controller('MainController', ['$scope', 'Spotify', 'Twitter', 'Playlist', 'UserData', '$interval', '$http',
       function (
-        $scope, Spotify, Twitter, Playlist, UserData, $interval, $cookies, $http
+        $scope, Spotify, Twitter, Playlist, UserData, $interval, $http
       ) {
         var vm = this;
         vm.tracks = Playlist.trackData;
@@ -21,12 +21,18 @@
         };
 
         vm.searchAll = function (searchText) {
-          Spotify.searchAll(searchText).then(function (data) {});
+          Spotify.searchAll(searchText).then(function (data) {
+            console.log(data);
+          });
         };
 
         vm.twitterfetch = function () {
-          Twitter.fetch();
-          UserData.setSpotifyToken();
+          if (Twitter.authval[0] == false) {
+            $('#modal-twitter').openModal();
+          } else {
+            Twitter.fetch();
+            UserData.setSpotifyToken();
+          }
 
           // $interval(Twitter.fetch, 63000);
         };
@@ -102,13 +108,14 @@
         };
 
         vm.openPlaylistCreate = function () {
+          UserData.setSpotifyToken();
           Spotify.getCurrentUser()
             .then(function (data) {
-            $('#modal-playlist').openModal();
-          }, function (error) {
+              $('#modal-playlist').openModal();
+            }, function (error) {
 
-            $('#modal-spotify').openModal();
-          });
+              $('#modal-spotify').openModal();
+            });
         };
 
         vm.createPlaylist = function (name) {
@@ -129,6 +136,7 @@
             Spotify
             .createPlaylist(data.id, { name: name })
             .then(function (data) {
+              console.log('hello');
               $http({
                 url: 'https://api.spotify.com/v1/users/' + userId + '/playlists/' + data.id + '/tracks?position=0&uris=' + trackIdString.toString(),
                 method: 'POST',
@@ -138,6 +146,8 @@
                 },
               });
             });
+
+            vm.playlistName = '';
           }, function (error) {
 
             console.log('ERROR');

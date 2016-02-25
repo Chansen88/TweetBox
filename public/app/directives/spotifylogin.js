@@ -1,19 +1,12 @@
+
 (function () {
   angular
     .module('tweetBoxApp')
-    .directive('customPopover', function () {
+    .directive('spotifyLogin', function () {
       return {
         restrict: 'E',
-        replace: true,
-        template: '/app/partials/spotifylogin.html',
-        link: function (scope, el, attrs) {
-          console.log('running popover');
-          $(el).popover({
-            trigger: 'click',
-            html: true,
-            content: attrs.popoverData,
-          });
-        },
+        replace: false,
+        templateUrl: '/app/partials/spotifylogin.html',
       };
     });
 })();

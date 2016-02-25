@@ -1,11 +1,11 @@
 <div class="modal-content center-align #9e9e9e grey">
   <h1>Create Playlist</h1>
   <div class="input-field col #ffffff white">
-    <input placeholder="TweetBOX" id="create-playlist" type="text" class="validate" ng-model="playlistName">
+    <input placeholder="TweetBOX" id="create-playlist" type="text" class="validate" ng-model="vm.playlistName">
     <label class="active" for="create-playlist">Platlist Name</label>
   </div>
 </br>
-  <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click="vm.createPlaylist(playlistName)">
+  <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click="vm.createPlaylist(vm.playlistName)">
     Save Playlist
   </button>
 </div>

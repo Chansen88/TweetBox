@@ -187,30 +187,27 @@
 <!-- Modal Structure for Sigin -->
 <div class="modal" id="modal-twitter">
   <div class="modal-content center-align #9e9e9e grey">
-
-        <h4>Authorize Twitter</h4>
-
-        <p>Sign Into Twitter</p>
-        <button class="waves-effect waves-light btn modal-trigger #00e676 green accent-3" ng-click='vm.twitterAuth()'>
-          Twitter
-        </button>
-
-    <div class="modal-footer">
-      <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
-    </div>
+    <twitter-login></twitter-login>
+  </div>
+  <div class="modal-footer ">
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
   </div>
 </div>
 
 <div class="modal" id="modal-spotify">
-  <div class="modal-content center-align #9e9e9e grey"></div>
-  <div class="modal-footer">
-    <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
+  <div class="modal-content center-align #9e9e9e grey">
+    <spotify-login></spotify-login>
+  </div>
+  <div class="modal-footer ">
+    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="vm.openPlaylistCreate()" href="#!">Close</a>
   </div>
 </div>
 
 <!-- Modal Structure Create Playlist-->
 <div class="modal" id="modal-playlist">
-
+  <div class="modal-content center-align #9e9e9e grey">
+    <spotify-playlist></spotify-playlist>
+  </div>
   <div class="modal-footer">
     <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="#!">Close</a>
   </div>

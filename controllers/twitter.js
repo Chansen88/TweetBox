@@ -8,12 +8,14 @@ var twitter = new twitterAPI({
 
 apiRouter.route('/twittertoken')
   .get(function (req, res) {
-    twitter.getAccessToken(req.session.requestToken,
+    console.log(req.session.isNew);
+    console.log(req.session.requestTokenSecret);
+    console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+    twitter.getAccessToken(req.query.oauth_token,
     req.session.requestTokenSecret,
-    req.session.oauth_verifier,
+    req.query.oauth_verifier,
     function (error, accessToken, accessTokenSecret, results) {
       if (error) {
-        console.log('error');
         res.redirect('/#/account');
       } else {
         req.session.accessToken = accessToken;
@@ -21,10 +23,13 @@ apiRouter.route('/twittertoken')
         res.redirect('/#/close');
       }
     });
+
   });
 
 apiRouter.route('/twitterfetch')
 .post(function (req, res) {
+  console.log(req.session);
+  console.log('work');
   twitter.getTimeline('mentions_timeline', req.body,
   req.session.accessToken, req.session.accessTokenSecret,
   function (error, data, response) {
@@ -43,17 +48,27 @@ apiRouter.route('/twitterfetch')
 
 apiRouter.route('/authcheck')
 .post(function (req, res) {
+  console.log(req.session);
+  console.log(req.session.accessTokenSecret);
   twitter.verifyCredentials(req.session.accessToken,
     req.session.accessTokenSecret, function (error, data, response) {
     if (error) {
-      res.json(false);
+      console.error('Twitter login Error');
+      res.status(401).json({
+              error: true,
+              data: { loginStatus: false },
+            });
     } else {
-      res.json(true);
+      res.status(200).json({
+              error: false,
+              data: { loginStatus: true },
+            });
     }
   });
 });
 
-app.get('/twitterauth', function (req, res) {
+apiRouter.route('/twitterauth')
+.get(function (req, res) {
   twitter.getRequestToken(
   function (error, requestToken, requestTokenSecret, results) {
     if (error) {
@@ -61,6 +76,7 @@ app.get('/twitterauth', function (req, res) {
     } else {
       req.session.requestToken = requestToken;
       req.session.requestTokenSecret = requestTokenSecret;
+      console.log(requestToken);
       userredirect(requestToken);
     }
 
